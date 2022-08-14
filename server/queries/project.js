@@ -16,7 +16,7 @@ const projectQuery=new GraphQLObjectType({
             type:ProjectType,
             args:{id:{type:GraphQLID}},
             resolve(parent,args){
-                return Project.find(args.id);
+                return Project.findById(args.id);
             }
         }
     }

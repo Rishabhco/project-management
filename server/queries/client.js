@@ -16,7 +16,7 @@ const clientQuery=new GraphQLObjectType({
             type:ClientType,
             args:{id:{type:GraphQLID}},
             resolve(parent,args){
-                return Client.find(args.id);
+                return Client.findById(args.id);
             }
         }
     }

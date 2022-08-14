@@ -18,10 +18,10 @@ const project=new GraphQLObjectType({
                            'new':{value:'Not Started'},
                            'progress':{value:'In Progress'},
                            'completed':{value:'Completed'},
-                        }
+                        },
+                        defaultValue:'Not Started',
                     }),
                 },
-                defaultValue:'Not Started',
                 clientId:{type:GraphQLNonNull(GraphQLID)},
             },
             resolve(parent,args){
