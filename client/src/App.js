@@ -4,9 +4,6 @@ import Header from "./components/Header";
 import Home from './pages/Home';
 import Project from './pages/Project';
 import NotFound from './pages/NotFound';
-// import Clients from './components/Clients';
-// import AddClientModal from './components/AddClientModal';
-// import Projects from './components/Projects';
 
 
 const cache = new InMemoryCache({
