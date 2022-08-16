@@ -24,13 +24,13 @@ export default function Project() {
             <Link to="/" className='btn btb-light btn-sm w-25 d-line ms-auto'>
                 Back
             </Link>
-            <h1>{data.project.name}</h1>
-            <p>{data.project.description}</p>
+            <h1>{data.project.project.name}</h1>
+            <p>{data.project.project.description}</p>
             <h5 className='mt-3'>Project Status</h5>
-            <p className='lead'>{data.project.status}</p>
-            <ClientInfo client={data.project.client} />
-            <EditProjectForm project={data.project} />
-            <DeleteProjectButton projectId={data.project.id} />
+            <p className='lead'>{data.project.project.status}</p>
+            <ClientInfo client={data.project.project.client} />
+            <EditProjectForm project={data.project.project} />
+            <DeleteProjectButton projectId={data.project.project.id} />
           </div>
         )
       }

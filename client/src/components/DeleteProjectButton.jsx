@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import {FaTrash} from 'react-icons/fa';
 import { GET_PROJECTS } from '../queries/projectQueries';
 import { DELETE_PROJECT } from '../mutations/projectMutations';

@@ -1,5 +1,5 @@
 import React from 'react';
-import {gql, useQuery} from '@apollo/client';
+import { useQuery} from '@apollo/client';
 import ClientRow from './ClientRow';
 import { GET_CLIENT } from '../queries/clientQueries';
 import Spinner from './Spinner';
@@ -24,7 +24,7 @@ export default function Clients() {
               </tr>
             </thead>
             <tbody>
-              {data.clients.map(client => (
+              {data.client.clients.map(client => (
                 <ClientRow key={client.id} client={client} />
               ))}
             </tbody>
