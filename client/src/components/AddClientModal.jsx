@@ -2,38 +2,35 @@ import React,{useState} from 'react';
 import {FaUser} from 'react-icons/fa';
 import { useMutation } from '@apollo/client';
 import { ADD_CLIENT } from '../mutations/clientMutations';
+import {useNavigate } from 'react-router-dom';
 import { GET_CLIENT } from '../queries/clientQueries';
 
 export default function AddClientModal() {
 
-    const [name,setName] = useState('');
-    const [email,setEmail] = useState('');
-    const [phone,setPhone] = useState('');
+  const navigate=useNavigate();
 
-    const [addClient] = useMutation(ADD_CLIENT,{
-      variables:{name,email,phone},
-      update(cache, {data:{addClient}}){
-        const {clients} = cache.readQuery({
-          query: GET_CLIENT
-        });
-        
-        cache.writeQuery({
-          query: GET_CLIENT,
-          data: {clients: [...clients.client.clients,addClient]},
-        })
-      }
-    });
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [phone,setPhone] = useState('');
 
-    const onSubmit = (e) => {
-      e.preventDefault();
-      if(name==='' || email==='' || phone===''){
-        return alert('Please fill in all fields');
-      }
-      addClient(name,email,phone);
-      setName('');
-      setEmail('');
-      setPhone('');
+    // error :-- not interactively updating the state of the client
+
+  const [addClient] = useMutation(ADD_CLIENT,{
+    variables:{name,email,phone},
+    onCompleted:()=> navigate("/"),
+    refetchQueries: [{query: GET_CLIENT}],
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if(name==='' || email==='' || phone===''){
+      return alert('Please fill in all fields');
     }
+    addClient(name,email,phone);
+    setName('');
+    setEmail('');
+    setPhone('');
+  }
 
   return (
     <>
@@ -63,7 +60,7 @@ export default function AddClientModal() {
                 </div>
                 <div className="mb-3">
                   <label className='form-label'>Phone</label>
-                  <input type="number" className="form-control" id="phone"  value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                  <input type="text" className="form-control" id="phone"  value={phone} onChange={(e) => setPhone(e.target.value)}/>
                 </div>
                 <button type="submit" data-bs-dismiss="modal" className="btn btn-secondary">Submit</button>
               </form>

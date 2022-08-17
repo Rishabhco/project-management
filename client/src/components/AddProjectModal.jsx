@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {FaList} from 'react-icons/fa';
+import {useNavigate} from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_PROJECTS } from '../queries/projectQueries';
 import Spinner from './Spinner';
@@ -7,6 +8,7 @@ import { GET_CLIENT } from '../queries/clientQueries';
 import { ADD_PROJECT } from '../mutations/projectMutations';
 
 export default function AddClientModal() {
+  const navigate=useNavigate();
 
   const [name,setName] = useState('');
   const [description,setDescription] = useState('');
@@ -15,15 +17,8 @@ export default function AddClientModal() {
 
   const [addProject] = useMutation(ADD_PROJECT,{
     variables: {name,description,clientId,status},
-    update(cache, {data: {addProject}}){
-      const {projects} = cache.readQuery({
-        query: GET_PROJECTS
-      });
-      cache.writeQuery({
-        query: GET_PROJECTS,
-        data: {projects: [...projects,addProject]},
-      })
-    }
+    onCompleted:()=> navigate("/"),
+    refetchQueries: [{query: GET_PROJECTS}],
   })
 
   const {loading, error, data} = useQuery(GET_CLIENT);
@@ -36,7 +31,7 @@ export default function AddClientModal() {
     addProject(name,description,clientId,status);
     setName('');
     setDescription('');
-    setStatus('new');
+    setStatus("new");
   }
 
   if(loading) return <Spinner />;

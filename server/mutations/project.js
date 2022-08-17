@@ -15,12 +15,12 @@ const project=new GraphQLObjectType({
                     type:new GraphQLEnumType({
                         name:"ProjectStatus",
                         values:{
-                           'new':{value:'Not Started'},
-                           'progress':{value:'In Progress'},
-                           'completed':{value:'Completed'},
+                           new:{value:'Not Started'},
+                           progress:{value:'In Progress'},
+                           completed:{value:'Completed'},
                         },
-                        defaultValue:'Not Started',
                     }),
+                    defaultValue:'Not Started',
                 },
                 clientId:{type:GraphQLNonNull(GraphQLID)},
             },
@@ -34,7 +34,7 @@ const project=new GraphQLObjectType({
                 return project.save();
             },
         },
-        deletePorject:{
+        deleteProject:{
             type:ProjectType,
             args:{
                 id:{type:GraphQLNonNull(GraphQLID)},
@@ -51,11 +51,11 @@ const project=new GraphQLObjectType({
                 description:{type:GraphQLString},
                 status:{
                     type:new GraphQLEnumType({
-                        name:"StausUpdate",
+                        name:"StatusUpdate",
                         values:{
-                           'new':{value:'Not Started'},
-                           'progress':{value:'In Progress'},
-                           'completed':{value:'Completed'},
+                           new:{value:'Not Started'},
+                           progress:{value:'In Progress'},
+                           completed:{value:'Completed'},
                         }
                     }),
                 },
