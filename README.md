@@ -11,5 +11,5 @@
 
 
 ## 🙋🏻‍♂️ Contributors
-* [Rishabh Agarwal](https://github.com/Rishabhco)
+* [Rishabh Agrawal](https://github.com/Rishabhco)
 * [Anushka Patil](https://github.com/anushkapatil18)
