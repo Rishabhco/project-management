@@ -13,8 +13,6 @@ export default function AddClientModal() {
   const [email,setEmail] = useState('');
   const [phone,setPhone] = useState('');
 
-    // error :-- not interactively updating the state of the client
-
   const [addClient] = useMutation(ADD_CLIENT,{
     variables:{name,email,phone},
     onCompleted:()=> navigate("/"),
