@@ -21,6 +21,7 @@ export default function Clients() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
