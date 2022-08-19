@@ -8,6 +8,8 @@ services:
     command: "npm start"
     depends_on:
       - server
+    environment:
+      - NODE_ENV=production
   server:
     build: ./server/
     ports:
