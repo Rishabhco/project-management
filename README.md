@@ -1,5 +1,7 @@
 # Project-Management
 
+It is a portal made in GrpahQl and Reactjs using Apollo Client
+
 ## 🛠️ Built With
 - React.js
 - Bootstrap
