@@ -6,8 +6,9 @@ import Project from './pages/Project';
 import NotFound from './pages/NotFound';
 
 
-const API_URI = process.env.NODE_ENV === 'production' ? 'http://54.197.65.16:3001/graphql' : 'http://localhost:3001/graphql';
+// const API_URI = process.env.NODE_ENV === 'production' ? 'http://54.197.65.16:3001/graphql' : 'http://localhost:3001/graphql';
 
+const API_URI = 'http://54.197.65.16:3001/graphql';
 
 console.log("Using: ", API_URI);
 
