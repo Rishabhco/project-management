@@ -15,5 +15,5 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - MONGO_URI="mongodb+srv://rishabh:rishabh@cluster0.kaxxnnq.mongodb.net/mgmt_db?retryWrites=true&w=majority"
+      - MONGO_URI=mongodb+srv://rishabh:rishabh@cluster0.kaxxnnq.mongodb.net/mgmt_db?retryWrites=true&w=majority
     command: "npm start"
